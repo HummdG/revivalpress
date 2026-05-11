@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
+/* ---------- Theme tokens ---------- */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Warm paper-and-ink palette */
+  --background: #faf7f2;
+  --foreground: #1a1814;
+
+  --surface: #ffffff;
+  --surface-muted: #f3eee5;
+
+  --muted: #6b6357;
+  --muted-foreground: #4a4338;
+
+  --border: #e5dfd3;
+  --border-strong: #ccc3b0;
+
+  --primary: #0f4c3a;          /* deep emerald */
+  --primary-foreground: #faf7f2;
+
+  --accent: #b08a3e;            /* muted gold */
+  --accent-foreground: #1a1814;
+
+  --ring: #0f4c3a;
+
+  --radius: 0.5rem;
+}
+
+.dark,
+:root[data-theme="dark"] {
+  --background: #0e0d0c;
+  --foreground: #edeae2;
+
+  --surface: #161412;
+  --surface-muted: #1a1815;
+
+  --muted: #8a8378;
+  --muted-foreground: #b8b0a3;
+
+  --border: #2a2724;
+  --border-strong: #3d3835;
+
+  --primary: #2a8a6a;
+  --primary-foreground: #0e0d0c;
+
+  --accent: #d4a955;
+  --accent-foreground: #0e0d0c;
+
+  --ring: #2a8a6a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ring: var(--ring);
+
+  --font-serif: var(--font-newsreader);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ---------- Base styles ---------- */
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-feature-settings: "ss01", "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Reusable utility classes via @utility (Tailwind v4) */
+@utility container-prose {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@utility container-wide {
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility heading-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+}
+
+/* Prose styles for long-form content (author info, prize description, book overview) */
+.prose-rp {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+
+.prose-rp p { margin-block: 1em; }
+.prose-rp p:first-child { margin-top: 0; }
+.prose-rp p:last-child { margin-bottom: 0; }
+
+.prose-rp h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-rp h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-rp a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 0.06em;
+}
+
+.prose-rp a:hover {
+  text-decoration-thickness: 0.12em;
+}
+
+.prose-rp ul, .prose-rp ol {
+  margin-block: 1em;
+  padding-left: 1.5em;
+}
+
+.prose-rp li {
+  margin-block: 0.35em;
+}
+
+.prose-rp ul li { list-style-type: disc; }
+.prose-rp ol li { list-style-type: decimal; }
+
+.prose-rp blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--muted-foreground);
+  margin-block: 1.5em;
+}
+
+.prose-rp strong { font-weight: 600; }
+.prose-rp em { font-style: italic; }
+
+.prose-rp hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin-block: 2.5rem;
 }
