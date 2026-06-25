@@ -5,7 +5,7 @@ export const site = {
   tagline: "Your home of revolutionary Islamic research and innovation",
   mission: [
     "Revival Press publishes peer-reviewed scholarship on Islamic law in its full historical, theological, ethical, cultural, political, educational, and gendered dimensions. Our work treats Islamic law not as a museum artefact but as a lived, evolving tradition that continues to shape — and be shaped by — Muslim societies the world over.",
-    "Our programme covers Islamic business, banking, and finance; international law and the law of nations; constitutional questions of democracy and pluralism in Muslim contexts; family law and gender; legal education; and the comparative study of legal reform. Across two flagship journals and a developing book list, we publish work that is rigorous, original, and consequential.",
+    "Our publishing programme engages broadly with scholarship across the social sciences and humanities, with a particular emphasis on law and its intersections with society. Across two flagship journals and a developing book list, we publish work that is rigorous, original, and consequential. Our publications engage scholarship situated within national, transnational, and international contexts, reflecting the interconnected nature of contemporary legal and social inquiry.",
     "We are committed to the highest standards of editorial care: extensive author support, transparent peer review, and a slow, deliberate engagement with each manuscript. Our editorial board comprises scholars from the United Kingdom, North Africa, Türkiye, and beyond.",
   ],
   contact: {

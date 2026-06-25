@@ -1,6 +1,6 @@
 export const authorInfo = {
   intro:
-    "Revival Press welcomes original scholarly manuscripts for consideration in our journals and book programme. The guidance below describes how to prepare your manuscript, what to expect from our review process, and how to submit.",
+    "Revival Press welcomes original scholarly manuscripts for consideration in our book programme. The guidance below describes how to prepare your manuscript, what to expect from our review process, and how to submit.",
 
   sections: [
     {

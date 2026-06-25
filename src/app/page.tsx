@@ -49,14 +49,14 @@ export default function HomePage() {
             className="heading-display max-w-[18ch] text-[clamp(2.75rem,9vw,7rem)]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Your home of{" "}
+            Shaping the future of Islamic research through{" "}
             <em
               className="italic"
               style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}
             >
-              revolutionary
+              innovation
             </em>{" "}
-            Islamic research and innovation.
+            and critical insight.
           </h1>
 
           <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12 md:items-end md:gap-14">
@@ -65,21 +65,22 @@ export default function HomePage() {
                 {site.mission[0]}
               </p>
               <div
-                className="mt-10 flex flex-wrap items-center gap-3"
+                className="mt-10 flex flex-col items-start gap-3"
                 style={{ fontFamily: "var(--font-sans)" }}
               >
+                <Link
+                  href="/author-info"
+                  className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
+                >
+                  Submit a manuscript
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
                 <Link
                   href="/journals"
                   className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
                 >
                   Browse the journals
                   <ArrowUpRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="/author-info"
-                  className="inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
-                >
-                  Submit a manuscript
                 </Link>
               </div>
             </div>
@@ -150,7 +151,7 @@ export default function HomePage() {
                 className="heading-display text-4xl md:text-5xl"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                A slow, deliberate press for serious legal scholarship.
+                Advancing legal scholarship through measured and deliberate inquiry.
               </h2>
             </div>
             <div className="md:col-span-7 prose-rp">
