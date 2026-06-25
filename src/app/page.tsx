@@ -373,46 +373,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ---------- CTA ---------- */}
-      <section>
-        <div className="container-wide py-24">
-          <div className="grid gap-10 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-7">
-              <p className="eyebrow mb-4">Submissions</p>
-              <h2
-                className="heading-display text-4xl md:text-5xl"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Submit your work.
-              </h2>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-                We welcome original scholarship for peer-reviewed publication
-                across both journals and our book programme. Articles run
-                5,000–15,000 words; book proposals are evaluated by two
-                independent reviewers.
-              </p>
-            </div>
-            <div
-              className="md:col-span-5 flex flex-wrap gap-3 md:justify-end"
-              style={{ fontFamily: "var(--font-sans)" }}
-            >
-              <Link
-                href="/author-info"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-foreground px-6 text-sm font-medium text-background transition-opacity hover:opacity-90"
-              >
-                Submission guide
-              </Link>
-              <a
-                href="mailto:a.a.ghouri@outlook.com"
-                className="inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
-              >
-                Email the editor
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
