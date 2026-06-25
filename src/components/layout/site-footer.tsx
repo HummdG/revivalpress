@@ -87,16 +87,12 @@ export function SiteFooter() {
 
       <div className="border-t border-border">
         <div
-          className="container-wide flex flex-col gap-2 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+          className="container-wide flex flex-col gap-2 py-6 text-center text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-center"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           <p>
             © {new Date().getFullYear()} Revival Press Limited. All rights
             reserved. Registered in England and Wales, company number 15280723.
-          </p>
-          <p>
-            <span className="mr-3">ISSN 3029-0961 · 3029-097X</span>
-            <span>ISSN 2977-9693 · 2977-9707</span>
           </p>
         </div>
       </div>

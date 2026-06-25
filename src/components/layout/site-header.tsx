@@ -7,7 +7,6 @@ const nav = [
   { href: "/books", label: "Books" },
   { href: "/editorial-team", label: "Editorial" },
   { href: "/prize", label: "Prize" },
-  { href: "/author-info", label: "Submit" },
 ];
 
 export function SiteHeader() {

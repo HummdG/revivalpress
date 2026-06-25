@@ -5,16 +5,12 @@ import {
   site,
   journals,
   books,
-  editors,
   prizeWinners,
   getLatestIssue,
   issueSlug,
 } from "@/lib/content";
 import { issueLabel } from "@/content/issues";
-
-const featuredEditors = editors.filter(
-  (e) => e.role === "editor-in-chief" || e.role === "deputy-editor-in-chief",
-);
+import { editorialTeam } from "@/content/editorial-team-featured";
 
 export default function HomePage() {
   const ltimsLatest = getLatestIssue(
@@ -163,6 +159,72 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ---------- EDITORIAL ---------- */}
+      <section className="border-b border-border">
+        <div className="container-wide py-20">
+          <div className="grid gap-14 md:grid-cols-12 md:items-start">
+            <div className="md:col-span-5">
+              <div className="mb-8 overflow-hidden rounded-xl border border-border">
+                <Image
+                  src="/images/library-study.jpeg"
+                  alt="A quiet study with bookshelves — watercolour by Frederic Schuler Briggs"
+                  width={690}
+                  height={1024}
+                  className="h-auto w-full"
+                />
+              </div>
+              <p className="eyebrow mb-3">The editorial board</p>
+              <h2
+                className="heading-display text-4xl md:text-5xl"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Scholarly Perspectives Across Diverse Geographical Contexts
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+                Our editors lead the peer review and editorial direction of
+                Revival Press, drawing on a wide range of scholarly expertise
+                and perspectives.
+              </p>
+              <Link
+                href="/editorial-team"
+                className="mt-6 inline-flex items-center gap-1 text-sm text-foreground underline underline-offset-4 transition-colors hover:text-primary"
+                style={{ fontFamily: "var(--font-sans)" }}
+              >
+                Meet the team
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            <ul className="md:col-span-7 divide-y divide-border border-t border-border">
+              {editorialTeam.map((e) => (
+                <li
+                  key={e.name}
+                  className="grid gap-2 py-6 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8"
+                >
+                  <div>
+                    <p
+                      className="text-xl leading-tight"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      {e.name}
+                    </p>
+                    <p
+                      className="mt-1.5 text-xs uppercase tracking-[0.14em] text-muted-foreground"
+                      style={{ fontFamily: "var(--font-sans)" }}
+                    >
+                      {e.role}
+                    </p>
+                  </div>
+                  <p className="text-sm text-muted-foreground sm:text-right">
+                    {e.affiliation}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* ---------- JOURNALS ---------- */}
       <section className="border-b border-border bg-surface-muted">
         <div className="container-wide py-20">
@@ -173,7 +235,7 @@ export default function HomePage() {
                 className="heading-display text-4xl md:text-5xl"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Two flagship titles.
+                Flagship titles.
               </h2>
             </div>
             <Link
@@ -308,76 +370,6 @@ export default function HomePage() {
                 </div>
               </div>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- EDITORIAL ---------- */}
-      <section className="border-b border-border bg-surface-muted">
-        <div className="container-wide py-20">
-          <div className="grid gap-14 md:grid-cols-12 md:items-start">
-            <div className="md:col-span-5">
-              <div className="mb-8 overflow-hidden rounded-xl border border-border">
-                <Image
-                  src="/images/library-study.jpeg"
-                  alt="A quiet study with bookshelves — watercolour by Frederic Schuler Briggs"
-                  width={690}
-                  height={1024}
-                  className="h-auto w-full"
-                />
-              </div>
-              <p className="eyebrow mb-3">The editorial board</p>
-              <h2
-                className="heading-display text-4xl md:text-5xl"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Scholars from three continents.
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                Our editors lead the peer review and editorial direction of
-                Revival Press, drawing on expertise from the United Kingdom,
-                North Africa, and Türkiye.
-              </p>
-              <Link
-                href="/editorial-team"
-                className="mt-6 inline-flex items-center gap-1 text-sm text-foreground underline underline-offset-4 transition-colors hover:text-primary"
-                style={{ fontFamily: "var(--font-sans)" }}
-              >
-                Meet the team
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-
-            <ul className="md:col-span-7 divide-y divide-border border-t border-border">
-              {featuredEditors.map((e) => (
-                <li
-                  key={e.id}
-                  className="grid gap-2 py-6 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8"
-                >
-                  <div>
-                    <p
-                      className="text-xl leading-tight"
-                      style={{ fontFamily: "var(--font-display)" }}
-                    >
-                      {e.honorific ? `${e.honorific} ` : ""}
-                      {e.name}
-                    </p>
-                    <p
-                      className="mt-1.5 text-xs uppercase tracking-[0.14em] text-muted-foreground"
-                      style={{ fontFamily: "var(--font-sans)" }}
-                    >
-                      {e.role === "editor-in-chief"
-                        ? "Editor in Chief"
-                        : "Deputy Editor in Chief"}
-                    </p>
-                  </div>
-                  <p className="text-sm text-muted-foreground sm:text-right">
-                    {e.affiliation}
-                    {e.country ? `, ${e.country}` : ""}
-                  </p>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>

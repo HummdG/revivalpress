@@ -45,7 +45,7 @@ export default function JournalsPage() {
             className="heading-display mt-6 text-[clamp(2.5rem,6vw,4.75rem)] max-w-4xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Two peer-reviewed journals shaping{" "}
+            Peer-reviewed journals shaping{" "}
             <em
               className="italic"
               style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}

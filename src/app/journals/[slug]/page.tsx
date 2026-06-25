@@ -17,6 +17,8 @@ import {
 } from "@/content/schemas";
 import { italicizeArabic } from "@/lib/italicize-arabic";
 
+const GUIDELINES_PDF = "/guidelines/journal-author-guidelines.pdf";
+
 export function generateStaticParams() {
   return journals.map((j) => ({ slug: j.slug }));
 }
@@ -553,12 +555,14 @@ export default async function JournalPage({
                 </a>
                 . Receipt of all manuscripts will be acknowledged immediately.
                 Please refer to our{" "}
-                <Link
-                  href="/author-info"
+                <a
+                  href={GUIDELINES_PDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[var(--primary)] underline underline-offset-4 decoration-1 hover:decoration-2"
                 >
                   Detailed Guidelines for Journal Contributors
-                </Link>{" "}
+                </a>{" "}
                 for further instructions and an explanation of our peer review
                 process.
               </p>
@@ -568,15 +572,17 @@ export default async function JournalPage({
               className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              <Link
-                href="/author-info"
+              <a
+                href={GUIDELINES_PDF}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
               >
                 <span className="border-b border-foreground pb-0.5 transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--primary)]">
                   Submission guide
                 </span>
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
+              </a>
               <span aria-hidden className="h-px w-4 bg-border-strong" />
               <a
                 href={`mailto:${journal.contactEmail}?subject=${encodeURIComponent(`Manuscript submission — ${journal.shortCode}`)}`}
